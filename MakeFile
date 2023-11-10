@@ -1,0 +1,8 @@
+StringInserts: StringInserts.o
+	gcc -o StringInserts StringInserts.o
+
+StringInserts.o: StringInserts.c
+	gcc -c StringInserts.c
+
+clean : 
+	del StringInserts.o StringInserts.exe
