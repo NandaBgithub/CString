@@ -1,8 +1,11 @@
-StringInserts: StringInserts.o
-	gcc -o StringInserts StringInserts.o
+test: test.o CString.o
+	gcc test.o CString.o -o test -lm
 
-StringInserts.o: StringInserts.c
-	gcc -c StringInserts.c
+test.o: test.c CString.h
+	gcc -Wall -c test.c
 
-clean : 
-	del StringInserts.o StringInserts.exe
+CString.o: CString.c CString.h
+	gcc -Wall -c CString.c  
+
+clean:
+	del test.o CString.o test.exe
