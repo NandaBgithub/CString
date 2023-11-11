@@ -18,11 +18,14 @@ int main(){
     // printf("%d \n", first_name->len);
     // printf("%s \n", first_name->content);
     
-    char **arr;
-    arr = CSpartition(first_name, 2);
+    // char **arr;
+    // arr = CSpartition(first_name, 2);
     // for (int i = 0; i<2; i++){
     //     printf("%s\n", arr[i]);
     // }
+
+    CScut(first_name, 2, 3);
+    printf("CScut first_name result = %s\n", first_name->content);
 
     return 1;
 }

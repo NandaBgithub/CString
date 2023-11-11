@@ -73,15 +73,17 @@ void CSjoin(String *s1, String *s2){
 */
 char **CSpartition(String *str, int interval){
     int fullsize = (str->len)/interval;
-    printf("fullSize = %d\n", fullsize);
-    int remaindersize = ((str->len)+1)%interval;
-    printf("remaindersize = %d\n", remaindersize);
 
+    int remaindersize = ((str->len)+1)%interval;
     int i, j, k = 0;
     char **res = (char **)malloc(sizeof(char*) * fullsize);
 
+    printf("remaindersize = %d\n", remaindersize);
+    printf("fullSize = %d\n", fullsize);
+    
     for (i = 0; i<fullsize; i++){
         res[i] = (char *)malloc(sizeof(char) * (interval+1));
+
         for (j = 0; j<interval; j++){
             (res[i])[j] = str->content[k];
             printf("string: %c j = %d\n", (res[i])[j], j);
@@ -105,4 +107,28 @@ char **CSpartition(String *str, int interval){
     }
 
     return res;
+}
+
+/*
+    cut part of a string exclusive from start index to the next index
+    the returned string is a resized string
+*/
+void CScut(String *str, int start, int end){
+    String *res = (String *)malloc(sizeof(String));
+    res->len = (end - start) + 2;
+    res->content = (char *)malloc(sizeof(char) * res->len);
+    printf("res->len = %d\n", res->len);
+
+    int j = start, i= 0;
+    for (i; i<(res->len)-1; i++){
+        res->content[i] = str->content[j];
+        printf("res->content[i] = %c\n", res->content[i]);
+        j++;
+    }
+    printf("j = %d\n", j);
+    printf("i = %d\n", i);
+    res->content[i] = '\0';
+    free(str);
+    str->len = res->len;
+    str->content = res->content;
 }
