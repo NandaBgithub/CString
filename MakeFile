@@ -2,10 +2,10 @@ test: test.o CString.o
 	gcc test.o CString.o -o test -lm
 
 test.o: test.c CString.h
-	gcc -Wall -c test.c
+	gcc -c test.c
 
 CString.o: CString.c CString.h
-	gcc -Wall -c CString.c  
+	gcc -c CString.c  
 
 clean:
 	del test.o CString.o test.exe

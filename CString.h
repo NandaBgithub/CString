@@ -9,3 +9,5 @@ void CSassign(String *destination, char *string);
 String *CSconcat(String *str1, String *str2);
 
 void CSjoin(String *s1, String *s2);
+
+char **CSpartition(String *str, int interval);
